@@ -1,0 +1,99 @@
+OOP:-
+1-Inheritance
+2-Encapsulation
+3-Containment
+3-Polymorphism
+4-Abstraction
+5-(Sepecialization)
+6-(Generalization)
+**************************************
+Types of Inheritance:-
+1-Single
+2-Multi Level 
+3-Multiple (Un-implimentable)
+4-Multipath inheritance (Un-implimentable)
+5-Heirarchichal
+6-Hybrid
+**************************************
+-The "implicit" or automatic posession of the properties and functionalities from the parent to the child.
+-Is a "is a" relation (logical Definition)
+
+Class:-
+Recepie
+
+Object:-
+Intance of that recepie
+
+Extend, Making Child or Inherit => Inheritance
+
+Multiple Inheritance:-
+when you multiple parents of a child
+
+Dryer
+Washingmachine
+
+AutmaticWashingMachine : Dryer, WashingMachine
+
+BedRoomFurniture
+{
+Lay()
+}
+
+Sofa : Furniture lay()
+Bed : lay()
+
+SofaCumBed : Sofa , Bed
+{
+
+}
+
+****************
+Car
+	Hatchback
+		Vitz
+			Manual : Vitz99: Vitz2005: Vitz2011
+			Auto : Vitz99: Vitz2005: Vitz2011
+		Alto
+			Manual
+			Auto
+		Nano
+	Sedan
+		Corolla
+		Mercedes
+		BMW
+	Sports
+		Ferrari
+		Porche
+		Lamborghini
+
+
+******************************************
+Human
+	Singer
+		Classical
+			Darbari
+			Beharwi
+		Pop
+			Rap
+			Commercial
+			Metal
+		Sufi
+		Folk
+		Jazz
+		Rock
+	Teacher 
+		Maths: AlgebraTeacher
+		English: EnglishLiterature: EnglishPoetry: EnglishPoemsTeacher
+		Islamiyat: QuranTeacher: HadithTeacher
+	Doctor
+	Carpenter
+*******************************************
+Encapsulation:-
+Accessibility, means whether to allow access of property or functionality by the object.
+
+To implement encapsulation in prograamming languages we use Access Modifiers.
+In c# we have maultiple access modifiers:-
+-public
+-private
+-protected
+-internal
