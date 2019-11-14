@@ -92,6 +92,7 @@ namespace Farasat
         }
     }
 
+    //Cannot be compiled because of multiple inheritance
     //class SofaCumBed : Sofa, Bed
     //{
     //    void Lay() //Sofa
@@ -132,10 +133,18 @@ namespace Farasat
         string cover { get; set; }
     }
 
-    class SofaCumBed : Sofa1, Bed1
-    {
+    //Cannot be compiled because of multiple inheritance
+    //class SofaCumBed : Sofa1, Bed1
+    //{
 
-    }
+    //}
 
     #endregion
+}
+
+public class EntryPoint
+{
+    public static void Main()
+    {
+    }
 }
