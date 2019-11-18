@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Farasat;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,7 +42,7 @@ namespace Farasat
     {
         string Degree { get; set; }
         string PracticeLicense { get; set; }
-        
+
         public void Treatment()
         {
 
@@ -74,7 +75,7 @@ namespace Farasat
         string cover { get; set; }
         string backSupport { get; set; }
 
-        void Lay()
+        public void Lay()
         {
 
         }
@@ -86,7 +87,7 @@ namespace Farasat
         string design { get; set; }
         string cover { get; set; }
 
-        void Lay()
+        public void Lay()
         {
 
         }
@@ -140,11 +141,83 @@ namespace Farasat
     //}
 
     #endregion
+
+    // Containment
+
+    //Aggregation implimenting multiple inheritance scenario
+    public class FacebookSignOn
+    {
+        public string facebookId { get; set; }
+        public string facebookPwd { get; set; }
+
+        public void SignIn()
+        {
+        }
+
+        public void SignOut()
+        {
+        }
+    }
+
+    public class InstagramSignOn
+    {
+        public string instagramId { get; set; }
+        public string instagramPwd { get; set; }
+
+        public void SignIn()
+        {
+        }
+
+        public void SignOut()
+        {
+        }
+    }
+
+    public class GoogleSignOn
+    {
+        public string googleId { get; set; }
+        public string googlePwd { get; set; }
+
+        public void SignIn()
+        {
+        }
+
+        public void SignOut()
+        {
+        }
+    }
+
+    //class SingleSignOn : FacebookSignOn, GoogleSignOn, InstagramSignOn
+    //{
+    //}
+
+    public class SingleSignOn
+    {
+        public FacebookSignOn fbSignOn { get; set; }
+        public GoogleSignOn googleSignOn { get; set; }
+        public InstagramSignOn instaSignOn { get; set; }
+    }
+
+    //Containment 
+    //Composition Real Life scenario implimenting multiple inheritance
+    class SofaCumBed
+    {
+        public Sofa sofa { get; set; }
+        public Bed bed { get; set; }
+    }
 }
 
 public class EntryPoint
 {
     public static void Main()
     {
+        SingleSignOn singleSignOn = new SingleSignOn();
+        singleSignOn.fbSignOn.SignIn();
+        singleSignOn.instaSignOn.SignIn();
+        singleSignOn.googleSignOn.SignIn();
+
+        SofaCumBed sofaCumBed = new SofaCumBed();
+        sofaCumBed.bed.Lay();
+        sofaCumBed.sofa.Lay();
     }
 }

@@ -2,10 +2,13 @@ OOP:-
 1-Inheritance
 2-Encapsulation
 3-Containment
-3-Polymorphism
-4-Abstraction
-5-(Sepecialization)
-6-(Generalization)
+	a-Aggregation
+	b-Composition
+	c-Hybrid
+4-Polymorphism
+5-Abstraction
+6-(Specialization)
+7-(Generalization)
 **************************************
 Types of Inheritance:-
 1-Single
@@ -97,3 +100,155 @@ In c# we have maultiple access modifiers:-
 -private
 -protected
 -internal
+
+******************************************* Containment:-
+Creating objects of other types inside a class of different type as a property.
+FacebookSignOn GoogleSignOn InstagramSignOn TwitterSignOn LinkedSignOn
+			SingleSignOn
+
+Composition:-
+When Parent is strongly dependent on childs.
+eg:
+House is composed of Rooms-> House {Rooms}
+Human is composed of Brain Heart Stomach Lungs-> Human{Brain, Heart, Stomach, Lungs}
+
+Aggregation:-
+When parent loosely dependent or not dependent on childs.
+
+eg:
+House aggregated by Furnitre, Lights -> House{Furniture, Lights}
+Human is aggregated by Legs Arms Cloths -> Human{Legs, Arms, Cloths}
+
+*******************************************
+Polymorphism:-
+Poly=Many
+Morph=Name
+
+1-Dynamic Ploymorphism.
+	Overriding:-
+		a-Function Overriding
+		b-Property Overriding
+	-Inheritance is a must
+
+2-Static Ploymorphism.
+	Overloading:-
+		a-Function Overloading.
+		b-Operator Overloading. "aamir" + "akhtar"="aamirakhtar"; 1+2=3
+
+Same Name but Many(Different) behaviours.
+
+Eg: Dynamic Polymorphism:- (Spcialization)
+Vitz1999
+{
+	Model
+	Engine
+	PowerStearing
+	Dimensions
+	Weight
+	Price=500,000
+	Shape
+	
+	AirConditioning(){Manual Climate Control}
+	Braking(){Abs}
+	Drive(){Manual}
+}
+
+Vitz1999Auto : Vitz1999
+{
+	override Price=600,000
+
+	override AirConditioning(){Auto Climate Control}
+	override Drive(){Auto}
+}
+
+Human
+{
+	FavouriteWork()
+	{
+	}
+}
+
+Naseem : Human
+{
+	FavouriteWork()
+	{
+		Qawwali
+	}
+}
+
+Farasat : Naseem
+{
+	FavouriteWork()
+	{
+		Listening to music
+	}
+}
+
+************ Dynamic Example
+
+Doctor
+{
+	Treatment();
+}
+
+Surgeon :Doctor
+{
+	Treatment(){Surgery}
+}
+
+Physician :Doctor
+{
+	Treatment(){Prescribing the medicine}
+}
+
+Physiotherapist :Doctor
+{
+	Treatment(){PhysioTherapy}
+}
+
+Static Polymorphism:-
+Function Overloading:-
+Nokar
+{
+	HouseKeeping(Dusting)
+	{}
+	HouseKeeping(Dusting, cooking)
+	{}
+	HouseKeeping(Dusting, Cooking, Driving)
+	{}
+}
+
+1-Number of parameters.
+2-Type of the parameters.
+3-Order of the type of the parameters.
+
+Calaculator
+{
+	1.
+	Add(int a, int b)
+	{
+	a+b;
+	}
+
+	Add(int a, int b, int c)
+	{
+	a+b+c;
+	}
+
+	2.
+	Add(float a, float b)
+	Add(int a, int b, float c)
+	
+	3.
+	Add(int a, float b, int c)
+
+	+(string a, string b)
+	{
+		a concats b
+	}
+
+	+(int a, int b)
+	{
+		a added to b;
+	}
+}
