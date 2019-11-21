@@ -1,0 +1,31 @@
+Abstraction:-
+1-Concept Or Idea, or it hides the complex functionality and that will be taken care by others.
+2-As Abstraction is a concept or idea you cant create object of it.
+Eg: SmartPhone, now you need to go to spcific features and functionalities to create specific smartphone in your mind to purchase.
+3-In abstract class there can be concrete property or functionality but in concrete class there cannot be
+abstract functionality or property.
+
+eg: In Iphone concept we can specify IOS but in exsting IPhone we cannot say that IOS concept is there but its not working. No Phone is IPhone if IOS is not there.
+
+Car
+{
+	Tires
+	Hatchback
+	Engine
+	AC
+	EntertainmentSystem
+
+	Power Steering
+}
+
+Iphone(Concept or Idea)
+{
+	Touch
+	Camera
+	ICloud(Concrete property)
+}
+
+IPhone10s
+{
+	
+}
