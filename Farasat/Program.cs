@@ -213,6 +213,13 @@ public class EntryPoint
 {
     public static void Main()
     {
+        AdminLogin login = new AdminLogin();
+        login.LoginFromEmailCode();
+        login.LoginFromSMSCode();
+        login.LoginByIdPassword();
+
+        Console.WriteLine("***************************************");
+
         Vitz1999Standard vitz99 = new Vitz1999Standard();
         Console.WriteLine(vitz99.model);
         Console.WriteLine(vitz99.price);
@@ -419,6 +426,7 @@ public class ScientificCalculator : Calculator
 }
 
 #endregion
+
 #region Abstraction
 public abstract class SmartPhone
 {
@@ -477,4 +485,52 @@ public class IPhone5S : IPhone
         Console.WriteLine("705 Band");
     }
 }
+#endregion
+
+#region Interface
+//Interface is a contract
+//Interface is a type of abstract class, in which by default all properties and methods are abstract
+//As by default all properties and methods are abstract means every child must impliment all of the parent methods and properties.
+//Interface's children must impliment all proerties and methods , though the child is abstract class
+//In interfaces multiple inheritance is allowed in c#
+
+public interface EmailAuthentication
+{
+    void LoginFromEmailCode();
+    void LoginByIdPassword();
+}
+
+public interface SMSAuthentication
+{
+    void LoginFromSMSCode();
+    void LoginByIdPassword();
+}
+
+public abstract class Login : EmailAuthentication, SMSAuthentication
+{
+    public string Id { get; set; }
+    public string Pwd { get; set; }
+
+    public void LoginByIdPassword()
+    {
+        Console.WriteLine("LoginByIdPassword");
+    }
+
+    public void LoginFromEmailCode()
+    {
+        Console.WriteLine("LoginFromEmailCode");
+    }
+
+    public void LoginFromSMSCode()
+    {
+        Console.WriteLine("LoginFromSMSCode");
+    }
+}
+
+public class AdminLogin : Login
+{
+    public string userRole { get; set; }
+}
+
+
 #endregion

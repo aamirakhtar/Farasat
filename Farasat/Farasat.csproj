@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSharp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -51,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Files\Abstraction.txt" />
+    <Content Include="Files\Dot Net.txt" />
     <Content Include="Files\Hybrid Inheritance.png" />
     <Content Include="Files\Inheritance.txt" />
   </ItemGroup>

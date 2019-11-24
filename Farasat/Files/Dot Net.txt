@@ -1,0 +1,33 @@
+Dot Net Framework:-
+
+CTS: Common Type System eg: int, bool, string
+JIT: Just In Time compiler: Responsible of compilation.
+GC (Garbage Collector): Memory management by cleaning the un-allocated variables, methods or objects.
+MSCORELIB (Micosoft core libraries) or Dot Net Framework Libraries: its a set of multiple namespaces provided by microsoft for the help of developers.
+
+*******************************************************
+Dot.Net framoework offers multiple languages:-
+C#, F#, C++.Net, VB.Net
+*******************************************************
+
+C#:-
+C# is a not farmework language.
+
+What is programming Language:-
+C#, cobol, c++, VB, Java, C.
+
+Solution:-
+Its a collection of projects.
+
+Project:-
+Its a collection of Namespaces.
+In Dot net we have 2 types of outputs of projects:-
+1- .exe (Executable)
+2- DLL (Dynamic Link Library)
+
+Namespace:-
+Its a collection of classes.
+
+Just like folder but folder is a physical grouping of files.
+whereas namespace is a logical grouping of classes.
+
