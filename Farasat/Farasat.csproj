@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSharp.cs" />
-    <Compile Include="Dot Net.cs" />
+    <Compile Include="DotNet.cs" />
     <Compile Include="OOP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
