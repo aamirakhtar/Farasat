@@ -208,10 +208,10 @@ namespace Farasat
     #endregion
 }
 
-#region Main()
+#region xMain()
 public class EntryPoint
 {
-    public static void Main()
+    public static void xMain()
     {
         AdminLogin login = new AdminLogin();
         login.LoginFromEmailCode();
@@ -310,6 +310,10 @@ public class Vitz1999Standard
     public float weight => 900;
     public string shockAbsorbers => "OIL Absorbers";
     public int tireSize => 13;
+
+    public Vitz1999Standard() //Default Constructor
+    {
+    }
 
     public void Braking()
     {
