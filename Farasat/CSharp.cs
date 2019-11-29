@@ -48,6 +48,7 @@ namespace Farasat
             Vegitable v = GiveMeVegitable(100, new Bike());
             int subResult = Subtract(1, 2);
 
+            //Type Casting
             int result = (int)(3.5 - 1.2);//Explicit type casting
             double dResult = 5 - 2;//Implicit Type Casting
             float fResult = 1.5f - 1;//Implicit Type Casting
