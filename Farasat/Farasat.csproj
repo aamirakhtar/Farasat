@@ -56,6 +56,7 @@
     <Content Include="Files\Dot Net.txt" />
     <Content Include="Files\Hybrid Inheritance.png" />
     <Content Include="Files\Inheritance.txt" />
+    <Content Include="Files\Memory Allocation.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
