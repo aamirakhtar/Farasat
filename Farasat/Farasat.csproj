@@ -57,7 +57,7 @@
     <Content Include="Files\Hybrid Inheritance.png" />
     <Content Include="Files\Inheritance.txt" />
     <Content Include="Files\Memory Allocation.png" />
-    <Content Include="Files\Static-Reference-Value Types.png" />
+    <Content Include="Files\Static_Reference_Value_Types.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

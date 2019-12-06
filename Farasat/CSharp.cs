@@ -112,6 +112,7 @@ namespace Farasat
             //Static property
             BioData.Name = "Donald";
 
+            //Non-static properties
             BioData b1 = new BioData(); b1.FathersName = "noman";
             BioData b2 = new BioData(); b2.FathersName = "akhtar";
             BioData b3 = new BioData(); b3.FathersName = "hussain";
