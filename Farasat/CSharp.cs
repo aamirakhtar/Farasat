@@ -15,7 +15,7 @@ namespace Farasat
             string myFirstName = "Farasat";
         }
 
-        public static void Main()
+        public static void xMain()
         {
             #region Type System (Value Types/Reference Types, Memory Allocation of value types and ref types, Methods,Type Casting
             //Value types:- all those types which are primitive types or system generated types.
@@ -84,8 +84,8 @@ namespace Farasat
             p1 = 0;
             int val = p1++ + ++p1;
 
-            p1 += 2; p1 = p1 + 2;
-            p1 -= 4; p1 = p1 - 4;
+            p1 += 2; /*equals*/ p1 = p1 + 2;
+            p1 -= 4; /*equals*/ p1 = p1 - 4;
 
             --p1;
             p1--;
@@ -109,36 +109,154 @@ namespace Farasat
             Console.WriteLine("**aamir\nakhtar**");
             Console.WriteLine("**aamir\takhtar**");
 
+            //BioData objBioData1 = new BioData();//Default Constructor
+            //BioData objBioData2 = new BioData(30);//Overloaded Constructor
+
+            BioData farasatBioData = new BioData()
+            {
+                FirstName = "Farasat",
+                LastName = "Hussain",
+                Age = 21,
+                Address = "Austria",
+                Gender = "Male",
+                Profession = "Student"
+            };
+
+            BioData farasatBioDataCopy = new BioData(farasatBioData);
+
+            BioData objBioData3 = new BioData();
+
             //Static property
-            BioData.Name = "Donald";
+            BioData.FathersName = "Donald";
 
             //Non-static properties
-            BioData b1 = new BioData(); b1.FathersName = "noman";
-            BioData b2 = new BioData(); b2.FathersName = "akhtar";
-            BioData b3 = new BioData(); b3.FathersName = "hussain";
+            BioData b1 = new BioData(); b1.FirstName = "noman"; b1.LastName = "Aqeel";
+            BioData.GetFullName(b1.FirstName, b1.LastName);
+            BioData b2 = new BioData(); b2.FirstName = "aamir"; b2.LastName = "akhtar";
+            BioData.GetFullName(b2.FirstName, b2.LastName);
+            BioData b3 = new BioData(); b3.FirstName = "farast"; b3.LastName = "hussain";
+            BioData.GetFullName(b3.FirstName, b3.LastName);
 
             b1.GetBio();
 
-            BioData.GetFullName();
+            BioData.PrintFathersName();
 
             Console.ReadLine();
         }
 
-        public class BioData
-        {
-            public static string Name { get; set; } //Shared, in memory it has only one address shared among all objects of class BioData
-            public string FathersName { get; set; } //Non-Static property
+        //Static Default Constructor
+        //Non-Static Default Consutructor
+        //Overloaded Constructor
+        //Copy Constructor
+        //Note: No constructor returns value, no return type
 
-            public static string GetFullName()// Static function cannot use non-static properties and variables
+        //When we only need single object
+        public static class Watsapp
+        {
+            public static string SendMsg(string msg)
             {
-                return Name;
+                return "sent";
+            }
+
+            public static WatsappUser RegisterUser(string number)
+            {
+                return new WatsappUser();
+            }
+
+            public static void StartVideoCall(string number)
+            {
+                Console.WriteLine("Video Cal Started");
+            }
+
+            public static void StartVoiceCall(string number)
+            {
+                Console.WriteLine("Voice Call Started");
+            }
+        }
+
+        public static class DAL
+        {
+            //CRUD operations (create, read, update, delete)
+            public static Product GetProduct(int id)
+            {
+                //Got the data from databse and return
+                return new Product();
+            }
+
+            public static void InsertProduct(Product product)
+            {
+                //Insert product into Product table in db and return nothing
+            }
+
+            public static void UpdateProduct(Product product)
+            {
+                //Update the product in DB and return nothing
+            }
+
+            public static void DeleteProduct(int id)
+            {
+            }
+        }
+
+        public class BioData : BioDataBase
+        {
+            static BioData() //Static default constructor and it has to be public
+            {
+                Console.WriteLine("Static Default Constructor");
+            }
+
+            public BioData() //Non-static Default constructor
+            {
+                Console.WriteLine("Non-Static Default Constructor");
+            }
+
+            public BioData(int age)//Overloaded constructor
+            {
+                this.Age = age;
+                Console.WriteLine("Overloaded Constructor");
+            }
+
+            public BioData(BioData bioData) //Copy Constructor
+            {
+                this.FirstName = bioData.FirstName;
+                this.LastName = bioData.LastName;
+                this.Age = bioData.Age;
+                this.Address = bioData.Address;
+                this.Profession = bioData.Profession;
+                this.Gender = bioData.Gender;
+                Console.WriteLine("Copy Constructor");
+            }
+
+            public static string FathersName { get; set; } //Shared, in memory it has only one address shared among all objects of class BioData
+
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public int Age { get; set; }
+            public string Address { get; set; }
+            public string Profession { get; set; }
+            public string Gender { get; set; }
+
+            public static string GetFullName(string fName, string lName) // Non-Static
+            {
+                return fName + " " + lName;
+            }
+
+            public static void PrintFathersName()// Static function cannot use non-static properties and variables
+            {
+                Console.WriteLine(FathersName);
             }
 
             //Non-Static can use both static and non-static variables and members bcz non static is object dependent and all objects know the address of shared or static member but shared or static memeber doesnt know the addresses of all the objects
             public string GetBio()
             {
-                return Name + FathersName;
+                return FirstName + FathersName;
             }
+
+            public int Addition(int a, int b)
+            {
+                return a + b;
+            }
+
         }
 
         public class A
@@ -182,6 +300,30 @@ namespace Farasat
         {
             return new Vegitable();
         }
+    }
+
+    public class BioDataBase
+    {
+        static BioDataBase()
+        {
+            Console.WriteLine("Parent Static Constructor");
+        }
+
+        public BioDataBase()
+        {
+            Console.WriteLine("Parent Default Constructor");
+        }
+    }
+
+    public class Product
+    {
+    }
+
+    public class WatsappUser
+    {
+        public string Number { get; set; }
+        public string Status { get; set; }
+        public string NickName { get; set; }
     }
 
     public class ShoppingBag
