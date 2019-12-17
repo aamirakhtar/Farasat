@@ -59,7 +59,7 @@
     <Content Include="Files\Dot Net.txt" />
     <Content Include="Files\Hybrid Inheritance.png" />
     <Content Include="Files\Inheritance.txt" />
-    <Content Include="Files\List.png" />
+    <Content Include="Files\Multi-Dimensional Array.png" />
     <Content Include="Files\Memory Allocation.png" />
     <Content Include="Files\Sigle Array and List.png" />
     <Content Include="Files\Static_Class_In_Memory.png" />
