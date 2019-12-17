@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DDEE2151-54CB-4C82-8C63-D8524BCBED00}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Farasat</RootNamespace>
-    <AssemblyName>Farasat</AssemblyName>
+    <ProjectGuid>{45B2EB5C-4287-4DBE-BE49-7332188117AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArraysLib</RootNamespace>
+    <AssemblyName>ArraysLib</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,33 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrayClass.cs" />
-    <Compile Include="CSharp.cs" />
-    <Compile Include="CSharp2.cs" />
-    <Compile Include="DotNet.cs" />
-    <Compile Include="ExceptionHandeling.cs" />
-    <Compile Include="OOP.cs" />
+    <Compile Include="Array.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Files\Abstraction.txt" />
-    <Content Include="Files\Dot Net.txt" />
-    <Content Include="Files\Hybrid Inheritance.png" />
-    <Content Include="Files\Inheritance.txt" />
-    <Content Include="Files\List.png" />
-    <Content Include="Files\Memory Allocation.png" />
-    <Content Include="Files\Sigle Array and List.png" />
-    <Content Include="Files\Static_Class_In_Memory.png" />
-    <Content Include="Files\Static_Reference_Value_Types.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ArraysLib\ArraysLib.csproj">
-      <Project>{45b2eb5c-4287-4dbe-be49-7332188117ae}</Project>
-      <Name>ArraysLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

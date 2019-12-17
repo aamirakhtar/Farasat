@@ -8,7 +8,7 @@ namespace Farasat
 {
     class ExceptionHandeling
     {
-        public static void Main()
+        public static void xMain()
         {
             AmazonPayment p = new AmazonPayment();
             p.CcNo = "4211111111";//Setter
