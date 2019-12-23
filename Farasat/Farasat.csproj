@@ -48,6 +48,7 @@
     <Compile Include="CSharp2.cs" />
     <Compile Include="DotNet.cs" />
     <Compile Include="ExceptionHandeling.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="OOP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

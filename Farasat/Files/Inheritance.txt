@@ -27,7 +27,7 @@ Recepie
 Object:-
 Intance of that recepie
 
-Extend, Making Child or Inherit => Inheritance
+(Extend (extension), Making Child or Inherit) => Inheritance
 
 Multiple Inheritance:-
 when you multiple parents of a child
