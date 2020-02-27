@@ -41,7 +41,7 @@ namespace Farasat
 
     public class EntryPoint
     {
-        public static void Main()
+        public static void exMain()
         {
             Employee emp = new Employee();
             Console.WriteLine(emp.CalculateWorkingHours());

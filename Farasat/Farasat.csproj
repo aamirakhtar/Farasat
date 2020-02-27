@@ -51,6 +51,8 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="OOP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Semester2\Stack.cs" />
+    <Compile Include="Semester2\Templates.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
