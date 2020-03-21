@@ -9,7 +9,7 @@ namespace Farasat.Semester2
 {
     public class EntryPoint
     {
-        public static void Main()
+        public static void GenericMain()
         {
             Book book = new Book();
             book.Contents = "Computer Science Contents";
@@ -46,11 +46,18 @@ namespace Farasat.Semester2
             bookTransp.Delivery(book);
             bookTransp.ProofOfDelivery(book);
 
+            Utility.SaveProductInDB<Book>(book);
+            double bookFees = Utility.GetTransportationFees<Book>(book);
+
             Transport<MobilePhone> mobileTransp = new Transport<MobilePhone>();
             mobileTransp.Departure(mobile);
             mobileTransp.Delivery(mobile);
             mobileTransp.ProofOfDelivery(mobile);
 
+            //Transport<int> trans = new Transport<int>();
+
+            Utility.SaveProductInDB<MobilePhone>(mobile);
+            double mobileFees = Utility.GetTransportationFees<MobilePhone>(mobile);
             //
             ArrayList list = new ArrayList();
             list.Add(1);
@@ -68,6 +75,7 @@ namespace Farasat.Semester2
 
     public class Book
     {
+        public int Id { get; set; }
         public string Contents { get; set; }
         public double Price { get; set; }
         public string Author { get; set; }
@@ -75,6 +83,7 @@ namespace Farasat.Semester2
 
     public class MobilePhone
     {
+        public int Id { get; set; }
         public double Price { get; set; }
         public string Brand { get; set; }
         public string ModelNum { get; set; }
@@ -136,7 +145,7 @@ namespace Farasat.Semester2
     }
 
     //Templated Class / Generic Class
-    public class Transport<T>
+    public class Transport<T> where T : class
     {
         public void Departure(T product)
         {
@@ -151,6 +160,33 @@ namespace Farasat.Semester2
         public void ProofOfDelivery(T product)
         {
             Console.WriteLine("Templated {0} Proof Of Delivery", typeof(T).Name);
+        }
+    }
+
+
+    //Templated functions
+    public class Utility
+    {
+        public static Book GetBookFromDB(int bookId)
+        {
+            Book book = new Book();
+            //Assume this detail is coming from DB
+            book.Id = bookId;
+            book.Author = "Farasat";
+            book.Contents = "C#";
+            book.Price = 100;
+
+            return book;
+        }
+
+        public static void SaveProductInDB<T>(T product) where T : class
+        {
+            Console.WriteLine("Product is saved in database");
+        }
+
+        public static double GetTransportationFees<T>(T product)
+        {
+            return 500;
         }
     }
 

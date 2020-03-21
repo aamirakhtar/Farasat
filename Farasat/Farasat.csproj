@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayClass.cs" />
+    <Compile Include="Constructors.cs" />
     <Compile Include="CSharp.cs" />
     <Compile Include="CSharp2.cs" />
     <Compile Include="DotNet.cs" />
