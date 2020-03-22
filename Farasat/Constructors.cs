@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Farasat.Constructors
 {
+    [Serializable]
     public class Vitz
     {
         public string Engine { get; set; }
@@ -28,13 +33,11 @@ namespace Farasat.Constructors
         {
 
         }
-
-
     }
 
     public class EntryPoint
     {
-        public static void Main()
+        public static void ConstructorsMain()
         {
             Employee st1;
             Employee st2;
