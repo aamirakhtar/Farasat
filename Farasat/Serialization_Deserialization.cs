@@ -110,7 +110,7 @@ namespace Farasat.Serialization_Deserialization
     }
     public class EntryPoint
     {
-        public static void Main()
+        public static void SerializationMain()
         {
             //1-BinaryFormatter
             //2-SoapFormatter

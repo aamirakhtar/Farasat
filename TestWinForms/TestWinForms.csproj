@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DDEE2151-54CB-4C82-8C63-D8524BCBED00}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Farasat</RootNamespace>
-    <AssemblyName>Farasat</AssemblyName>
+    <ProjectGuid>{07DEE955-D828-4A10-9380-5F3887AAAA22}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TestWinForms</RootNamespace>
+    <AssemblyName>TestWinForms</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,48 +35,49 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrayClass.cs" />
-    <Compile Include="Constructors.cs" />
-    <Compile Include="CSharp.cs" />
-    <Compile Include="CSharp2.cs" />
-    <Compile Include="DotNet.cs" />
-    <Compile Include="EventsAndDelegates.cs" />
-    <Compile Include="ExceptionHandeling.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="OOP.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Semester2\Stack.cs" />
-    <Compile Include="Semester2\Templates.cs" />
-    <Compile Include="Serialization_Deserialization.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Files\Abstraction.txt" />
-    <Content Include="Files\Dot Net.txt" />
-    <Content Include="Files\Hybrid Inheritance.png" />
-    <Content Include="Files\Inheritance.txt" />
-    <Content Include="Files\Multi-Dimensional Array.png" />
-    <Content Include="Files\Memory Allocation.png" />
-    <Content Include="Files\Sigle Array and List.png" />
-    <Content Include="Files\Static_Class_In_Memory.png" />
-    <Content Include="Files\Static_Reference_Value_Types.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ArraysLib\ArraysLib.csproj">
-      <Project>{45b2eb5c-4287-4dbe-be49-7332188117ae}</Project>
-      <Name>ArraysLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
