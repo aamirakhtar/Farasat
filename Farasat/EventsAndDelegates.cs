@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -17,14 +18,24 @@ namespace Farasat.EventsAndDelegates
     {
         public static void Main()
         {
-            FileProcess fp = new FileProcess();
+            //With Delegate
+            FileProcess fp1 = new FileProcess();
+            fp1.funcDel = SendEmailNotification;
+            fp1.funcDel += SendSmsNotification;
+            //fp1.funcDel = null; //The only diff b/w events and delegates is delegates can be modified like here we assign null, but events cannot be modified
+            fp1.funcDel += SendWatsappNotification;
 
-            fp.OnFileProcessed += SendEmailNotification;
+            fp1.ProcessWithDelegate("file2.txt");
+
+            //With Event, Event is the encapsulation of Delegate which implements publisher subscriber model. Means a client can subscribe or unsubscribe to publisher but cannot modify publisher. Means they can only listen but cannot modify broadcaster.
+            FileProcess fp = new FileProcess();
             fp.OnFileProcessed += SendEmailNotification;
             fp.OnFileProcessed += SendSmsNotification;
+            //fp.OnFileProcessed = null; //Here event cannot be modified as you see "=" sign is not allowed but += and -= is allowed
+            fp.OnFileProcessed += SendWatsappNotification;
 
             fp.Process("file1.txt");
-
+            
             Console.ReadLine();
         }
 
@@ -52,6 +63,8 @@ namespace Farasat.EventsAndDelegates
 
         public event SendNotification OnFileProcessed;
 
+        public SendNotification funcDel;
+
         public void Process(string fileName)
         {
             Console.WriteLine("File Processing Starts...");
@@ -60,8 +73,19 @@ namespace Farasat.EventsAndDelegates
             Console.WriteLine("File Processing Completed.");
 
             //Sending Notifications
-            if (this.OnFileProcessed != null)
+            if (OnFileProcessed != null)
                 OnFileProcessed(fileName);
+        }
+
+        public void ProcessWithDelegate(string fileName)
+        {
+            Console.WriteLine("File Processing Starts...");
+            Thread.Sleep(2000);
+            //Some file processing
+            Console.WriteLine("File Processing Completed.");
+
+            //Sending Notifications via delegate
+            funcDel(fileName);
         }
     }
 }
