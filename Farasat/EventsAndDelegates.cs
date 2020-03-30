@@ -43,7 +43,7 @@ namespace Farasat.EventsAndDelegates
             Console.WriteLine("03212534148-{0}", counter);
         }
 
-        public static void Main()
+        public static void EventsMain()
         {
             //Multicast Delegate example
             //EventPractice obj = new EventPractice();

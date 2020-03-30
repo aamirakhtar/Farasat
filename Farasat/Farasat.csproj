@@ -48,6 +48,7 @@
     <Compile Include="Constructors.cs" />
     <Compile Include="CSharp.cs" />
     <Compile Include="CSharp2.cs" />
+    <Compile Include="Dictionary.cs" />
     <Compile Include="DotNet.cs" />
     <Compile Include="EventsAndDelegates.cs" />
     <Compile Include="ExceptionHandeling.cs" />
