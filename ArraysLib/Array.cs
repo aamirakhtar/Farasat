@@ -8,6 +8,8 @@ namespace Farasat
 {
     public class Array
     {
+        protected internal int MyProperty { get; set; }
+
         public static void ArrayPractice()
         {
             //1- We can have multiple variables in memory.
@@ -143,6 +145,15 @@ namespace Farasat
         {
             public object value { get; set; }
             public Node next { get; set; }
+        }
+    }
+
+    public class AAA
+    {
+        public void AA()
+        {
+            Array a = new Array();
+            a.MyProperty = 4;
         }
     }
 }

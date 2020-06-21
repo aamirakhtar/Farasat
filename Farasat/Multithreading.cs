@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Farasat.Multithreading
 {
+    class A : Array
+    {
+        public A()
+        {
+            this.MyProperty = 4;
+        }
+    }
+
     class EntryPoint
     {
         static object lockObj = new object();
@@ -16,10 +25,38 @@ namespace Farasat.Multithreading
 
         static int counter1 = 0;
         static int counter2 = 0;
-        static int counter3 = 0;
+        //static int counter3 = 0;
+
+        public static string GetHash(string password)
+        {
+            //Get the hash of entered password
+            var data = Encoding.ASCII.GetBytes(password);
+
+            var sha1 = new SHA1CryptoServiceProvider();
+            var sha1Data = sha1.ComputeHash(data);
+
+            ASCIIEncoding obj = new ASCIIEncoding();
+            var hashedPassword = obj.GetString(sha1Data);
+
+            return hashedPassword;
+        }
+
+        public static bool Authenticate(string enteredPassword, string savedPassword)
+        {
+            //Get the hash of entered password
+            string enteredHashedPassword = GetHash(enteredPassword);
+
+            //Get the hash of saved password
+
+            string savedHashedPassword = GetHash(savedPassword);
+
+            return enteredHashedPassword == savedHashedPassword;
+        }
 
         public static void Main() //calling thread
         {
+            bool isMatched = Authenticate("aamir", "aamir");
+
             #region Time Sharing and Join
             /*
             Console.WriteLine("Main thread is started");
@@ -99,6 +136,9 @@ namespace Farasat.Multithreading
 
             #region Thread Performance Calculation
 
+            AA v = null;            
+            aa(v);
+
             Stopwatch watch = new Stopwatch();
             watch.Start();
 
@@ -149,6 +189,12 @@ namespace Farasat.Multithreading
             //    }
             //};
             #endregion
+        }
+
+        public static void aa(AA lst)
+        {
+            lst = new AA();
+            lst.MyProperty = 2;
         }
 
         public static void func1(object num)
@@ -234,5 +280,10 @@ namespace Farasat.Multithreading
 
             Console.WriteLine(count++);
         }
+    }
+
+    class AA
+    {
+        public int MyProperty { get; set; }
     }
 }
