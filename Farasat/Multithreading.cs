@@ -55,6 +55,8 @@ namespace Farasat.Multithreading
 
         public static void Main() //calling thread
         {
+            AsymmetricEncryptionDecryption.RSA();
+
             bool isMatched = Authenticate("aamir", "aamir");
 
             #region Time Sharing and Join
@@ -136,7 +138,7 @@ namespace Farasat.Multithreading
 
             #region Thread Performance Calculation
 
-            AA v = null;            
+            AA v = null;
             aa(v);
 
             Stopwatch watch = new Stopwatch();
@@ -285,5 +287,47 @@ namespace Farasat.Multithreading
     class AA
     {
         public int MyProperty { get; set; }
+    }
+
+    public class AsymmetricEncryptionDecryption
+    {
+        public static void RSA()
+        {
+            var rsa = new RSACryptoServiceProvider();
+            string privateKey = rsa.ToXmlString(true);
+            string publicKey = rsa.ToXmlString(false);
+
+            var text = "test1";
+
+            Console.WriteLine("Text to encrypt: " + text);
+            var enc = Encrypt(text, publicKey);
+
+            var dec = Decrypt(enc, privateKey);
+            Console.WriteLine("Decrypted Text: " + dec);
+        }
+
+        public static string Encrypt(string data, string publicKey)
+        {
+            var rsa = new RSACryptoServiceProvider();
+            rsa.FromXmlString(publicKey);
+
+            var dataBytes = Encoding.UTF8.GetBytes(data);
+
+            var encryptedBytes = rsa.Encrypt(dataBytes, false);
+
+            return Convert.ToBase64String(encryptedBytes);
+        }
+
+        public static string Decrypt(string data, string privateKey)
+        {
+            var rsa = new RSACryptoServiceProvider();
+            rsa.FromXmlString(privateKey);
+
+            var dataBytes = Convert.FromBase64String(data);            
+
+            var decryptedBytes = rsa.Decrypt(dataBytes, false);
+
+            return Encoding.ASCII.GetString(decryptedBytes);
+        }
     }
 }
